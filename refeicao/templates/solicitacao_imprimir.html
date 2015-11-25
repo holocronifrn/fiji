@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>Bolsa refei&ccedil;&atilde;o</title>
+<style type="text/css">
+body {
+	font-family: Arial, helvetica, sans-serif;
+}
+table {
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	border-spacing: 0px;
+	width: 100%;
+}
+table td, table th {
+	margin: 0px;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+.head {
+	text-align: center;
+}
+h1 {
+	margin: 0px;
+}
+</style>
+</head>
+<body>
+<div class="head">
+	<div>
+INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO RIO GRANDE DO NORTE<br/>
+COORDENAÇÃO DE ATIVIDADES ESTUDANTIS</br>
+SERVIÇO SOCIAL</div>
+<div><b>Data:</b> {{ data }}</div>
+<h1>{{ ficha }}</h1>
+<table>
+	<tr>
+		<th width="30">N&ordm;</th>
+		<th width="200">Nome</th>
+		<th width="130">Matrícula</th>
+		<th width="60">Ficha</th>
+		<th>Assinatura</th>
+	</tr>
+{% for aluno in alunos %}
+	<tr>
+		<td align="center">{{ forloop.counter }}</td>
+		<td><nobr>{{ aluno.full_name }}</nobr></td>
+		<td align="center">{{ aluno.username }}</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+{% endfor %}
+</table>
+</body>
+</html>

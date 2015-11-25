@@ -1,0 +1,21 @@
+{% extends "admin/base.html" %}
+{% load i18n %}{% load static %}
+{% load admin_static %}{% load url from future %}
+{% block extrahead %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.js" type="text/javascript"></script>
+    {% include 'autocomplete_light/static.html' %}
+{% endblock %}
+{% block title %}Sistema de Solicita&ccedil;&atilde;o de refei&ccedil;&otilde;es{% endblock %}
+{% block branding %}
+<img src="{% static "img/refeicao.jpg" %}" height="150"/>
+{% endblock %}
+{% block nav-global %}
+{% if "refeicao.change_solicitacao" in user.get_all_permissions %}
+<div class='menu'>
+<a href='{% url "admin:refeicao_solicitacao_changelist" %}'>Inscri&ccedil;&otilde;es</a>
+{% if "refeicao.change_horariosolicitacao" in user.get_all_permissions %}| <a href='{% url "admin:refeicao_horariosolicitacao_changelist" %}'>Horarios de inscri&ccedil;&atilde;o</a>{% endif %}
+{% if "auth.change_user" in user.get_all_permissions %}| <a href='{% url "admin:auth_user_changelist" %}'>Usu&aacute;rios</a>{% endif %}
+{% if "auth.change_group" in user.get_all_permissions %}| <a href='{% url "admin:auth_group_changelist" %}'>Grupos</a>{% endif %}
+</div>
+{% endif %}
+{% endblock %}

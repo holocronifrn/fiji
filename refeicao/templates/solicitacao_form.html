@@ -1,0 +1,23 @@
+{% extends "admin/base_site.html" %}
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="/refeicao/static/admin/css/forms.css" />
+<style>
+label {display: block;}
+.button.default, input[type=submit].default, .submit-row input.default {
+    float: none;
+}
+</style>
+{% endblock %}
+{% block content_title %}<h1>Solicita&ccedil;&atilde;o de refei&ccedil;&atilde;o</h1>{% endblock %}
+{% block content %}
+<div id="content-main">
+<form action="" method="post">{% csrf_token %}
+<div>
+	{{ form.as_p }}
+	<div class="submit_row">
+		<input type="submit" value="Enviar" class="default" name="_save" />
+	</div>
+	<script type="text/javascript">document.getElementById("id_motivo").focus();</script>
+</div>
+</form>
+{% endblock %}
